@@ -12,6 +12,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import net.holosen.androidformbuilder.MainActivity
+import net.holosen.androidformbuilder.ui.theme.PurpleGrey40
 import net.holosen.androidformbuilder.viewmodels.BodyViewModel
 
 @ExperimentalMaterial3Api
@@ -30,13 +31,13 @@ fun MainScreen(mainActivity: MainActivity) {
         },
         floatingActionButton = {
             ExtendedFloatingActionButton(
-                text = { Text(text = "New", color = Color.White) },
+                text = { Text(text = "New", color = PurpleGrey40) },
                 onClick = { navController.navigate("addOrEdit/-1") },
                 icon = {
                     Icon(
                         imageVector = Icons.Filled.Add,
                         contentDescription = "",
-                        tint = Color.White
+                        tint = PurpleGrey40
                     )
                 }
             )
