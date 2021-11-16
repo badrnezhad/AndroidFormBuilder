@@ -47,7 +47,7 @@ fun MainScreen(mainActivity: MainActivity) {
             startDestination = "home",
         ) {
             composable("home") {
-
+                HomeScreen(bodyViewModel, navController)
             }
             composable("addOrEdit/{id}",
                 arguments = listOf(
