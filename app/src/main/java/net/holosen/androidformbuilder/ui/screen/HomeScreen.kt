@@ -14,7 +14,7 @@ fun HomeScreen(
     bodyViewModel: BodyViewModel,
     navController: NavController
 ) {
-    LazyColumn(Modifier.padding(20.dp, 0.dp, 15.dp, 15.dp)) {
+    LazyColumn(Modifier.padding(20.dp)) {
         items(bodyViewModel.dataList.value.size) { index ->
             val item = bodyViewModel.dataList.value[index]
             BodyItemView(item, bodyViewModel, navController)

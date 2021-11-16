@@ -4,7 +4,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -12,6 +11,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import net.holosen.androidformbuilder.MainActivity
+import net.holosen.androidformbuilder.ui.components.TopAppView
 import net.holosen.androidformbuilder.ui.theme.PurpleGrey40
 import net.holosen.androidformbuilder.viewmodels.BodyViewModel
 
@@ -28,6 +28,7 @@ fun MainScreen(mainActivity: MainActivity) {
 
     Scaffold(
         topBar = {
+            TopAppView(navController = navController)
         },
         floatingActionButton = {
             ExtendedFloatingActionButton(
@@ -53,8 +54,11 @@ fun MainScreen(mainActivity: MainActivity) {
             composable("addOrEdit/{id}",
                 arguments = listOf(
                     navArgument("id") { type = NavType.LongType }
-                )) {
-                //val id = backStack.arguments?.getLong("id")!!
+                )) { backStack ->
+                val id = backStack.arguments?.getLong("id")!!
+                AddOrEditScreen(id, bodyViewModel, navController)
+            }
+            composable("about") {
             }
         }
     }
