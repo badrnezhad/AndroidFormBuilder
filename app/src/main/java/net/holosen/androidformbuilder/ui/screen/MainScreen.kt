@@ -63,6 +63,14 @@ fun MainScreen(mainActivity: MainActivity) {
                 val id = backStack.arguments?.getLong("id")!!
                 AddOrEditScreen(id, bodyViewModel, navController)
             }
+            composable("view/{id}",
+                arguments = listOf(
+                    navArgument("id") { type = NavType.LongType }
+                )) { backStack ->
+                showFab = false
+                val id = backStack.arguments?.getLong("id")!!
+                ViewScreen(id, bodyViewModel, navController)
+            }
             composable("about") {
                 showFab = false
             }
